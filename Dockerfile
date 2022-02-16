@@ -10,7 +10,7 @@ RUN apt-get update
 RUN apt-get install -y openresty
 COPY ./deploy /Hawkeye/deploy
 RUN pip install --upgrade pip setuptools==45.2.0
-RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r /Hawkeye/deploy/pyenv/requirements.txt -U
+RUN pip install -r /Hawkeye/deploy/pyenv/requirements.txt -U
 RUN cp /Hawkeye/deploy/nginx/*.conf /usr/local/openresty/nginx/conf/
 RUN cp /Hawkeye/deploy/supervisor/*.conf /etc/supervisor/conf.d/
 COPY ./client/dist /Hawkeye/client/dist
